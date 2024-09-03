@@ -1,7 +1,7 @@
 import { saveUserInfoResolver } from './user';
 
 const mutation = {
-	saveUserInfo: saveUserInfoResolver,
+  saveUserInfo: saveUserInfoResolver,
 };
 
 export default mutation;

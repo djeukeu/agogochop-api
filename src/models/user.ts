@@ -5,20 +5,20 @@ import prismaContext from 'src/prisma';
 const { user } = prismaContext.prisma;
 
 export const readUserById = async (id: string): Promise<User | null> => {
-	const response = await user.findUnique({
-		where: { id },
-	});
-	return response;
+  const response = await user.findUnique({
+    where: { id },
+  });
+  return response;
 };
 
 export const readUserByEmail = async (email: string): Promise<User | null> => {
-	const response = await user.findUnique({
-		where: { email },
-	});
-	return response;
+  const response = await user.findUnique({
+    where: { email },
+  });
+  return response;
 };
 
 export const createUser = async (data: User): Promise<User> => {
-	const response = await user.create({ data });
-	return response;
+  const response = await user.create({ data });
+  return response;
 };
