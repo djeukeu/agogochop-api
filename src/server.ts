@@ -29,16 +29,15 @@ const startServer = async () => {
 
   await server.start();
 
+  app.get('/health', healthcheck);
   app.use(
-    '/graphql',
+    ['/', '/graphql'],
     expressMiddleware(server, {
       context: async ({ req = app.request }) => ({
         req,
       }),
     })
   );
-
-  app.get('/health', healthcheck);
 
   new Promise<void>((resolve) => httpServer.listen({ port: config.port }, resolve))
     .then(() => {
